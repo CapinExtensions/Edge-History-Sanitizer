@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Edge History Sanitizer – Options</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>
+      <img src="icons/logo-inline.png" alt="logo" class="inline-logo" />
+      Edge History Sanitizer
+    </h1>
+    <p>Automatically remove matching URLs from your browsing history.</p>
+  </header>
+
+  <section class="card">
+    <h2>Add rule</h2>
+    <form id="add-form">
+      <label>
+        Pattern
+        <input id="pattern" type="text" placeholder="e.g. example.com or *.example.com" required />
+      </label>
+      <label>
+        Match type
+        <select id="matchType">
+          <option value="keyword">Keyword</option>
+          <option value="domain">Domain (*.example.com)</option>
+        </select>
+      </label>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Stats</h2>
+    <div class="stats">
+      <div><strong>Total deleted:</strong> <span id="deletedCount">0</span></div>
+      <div><strong>Last 30 days:</strong> <span id="last30Count">0</span></div>
+      <div><strong>Last reset:</strong> <span id="lastReset">–</span></div>
+      <button id="resetCounter">Reset counter</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Rules</h2>
+    <table class="rules" id="rules-table">
+      <thead><tr><th>#</th><th>Pattern</th><th>Type</th><th>Enabled</th><th>Actions</th></tr></thead>
+      <tbody id="rules-body"></tbody>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Logs (all, most recent first)</h2>
+    <div class="controls">
+      <button id="exportCsv">Export CSV</button>
+      <button id="clearLogs">Clear logs</button>
+    </div>
+    <table class="logs" id="logs-table">
+      <thead><tr><th>Time</th><th>URL</th><th>Source</th></tr></thead>
+      <tbody id="logs-body"></tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>Tip: Right‑click any page and choose <em>History Sanitizer → Add current site</em>.</p>
+  </footer>
+
+  <script src="options.js"></script>
+</body>
+</html>
